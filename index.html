@@ -1,1 +1,325 @@
-Hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHYRA | Himalayan Heritage & Modern Lifestyle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
+
+        :root {
+            --mountain-black: #080808;
+            --snow-white: #f8f8f8;
+            --clay: #1a1a1a;
+            --accent: #c5a36b; /* Gold/Bronze accent for premium feel */
+        }
+
+        body {
+            background-color: var(--mountain-black);
+            color: var(--snow-white);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Custom Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-nav {
+            background: rgba(8, 8, 8, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Animations */
+        @keyframes fade-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-up { animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Product Card Hover */
+        .product-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .product-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-8px);
+        }
+        .product-card img {
+            transition: transform 0.8s ease;
+        }
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .btn-premium {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .btn-premium:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            transform: scale(1.02);
+        }
+
+        .text-header {
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+            <div class="text-2xl font-extrabold tracking-tighter uppercase">SHYRA</div>
+            <div class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">
+                <a href="#flagship" class="hover:text-white transition-colors">Flagship</a>
+                <a href="#apparel" class="hover:text-white transition-colors">Essentials</a>
+                <a href="#story" class="hover:text-white transition-colors">Our Story</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <button class="bg-white text-black text-[10px] font-bold px-6 py-2.5 rounded-full uppercase tracking-widest hover:bg-gray-200 transition-all">Shop</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.03)_0%,transparent_50%)]"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
+            <div class="z-10 animate-up">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 mb-8 bg-white/5">
+                    <span class="w-1 h-1 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-gray-400">Himalayan Sourced & Processed</span>
+                </div>
+                <h1 class="text-6xl lg:text-8xl font-extrabold text-header mb-8">
+                    Altitude <br>Meet <span class="text-gray-500 italic">Attitude.</span>
+                </h1>
+                <p class="text-gray-400 text-lg max-w-lg mb-12 leading-relaxed font-light">
+                    From the peaks of the Himalayas to the heart of the city. SHYRA brings you organic Churpi and artisan Coffee, balanced by premium urban lifestyle essentials.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#flagship" class="btn-premium px-10 py-5 bg-white text-black font-bold rounded-2xl">The Flagship Series</a>
+                    <a href="#apparel" class="btn-premium px-10 py-5 glass font-bold rounded-2xl hover:bg-white/5">Lifestyle Gear</a>
+                </div>
+            </div>
+
+            <!-- Dynamic Product Display -->
+            <div class="relative flex justify-center items-center animate-up" style="animation-delay: 0.2s;">
+                <div class="relative z-10 w-full aspect-square max-w-xl group">
+                    <!-- Layered Image Effect -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent rounded-[3rem] -rotate-3 transition-transform group-hover:rotate-0 duration-500"></div>
+                    <div class="relative w-full h-full glass rounded-[3rem] p-12 flex items-center justify-center">
+                        <img src="1.png" alt="Himalayan Churpi" class="w-full h-full object-contain drop-shadow-2xl" 
+                             onerror="this.src='https://via.placeholder.com/600x600/111/fff?text=CHURPI+PREMIUM'">
+                    </div>
+                </div>
+                <!-- Background decor -->
+                <div class="absolute -top-10 -right-10 w-64 h-64 bg-white/5 blur-[100px] rounded-full"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flagship Products (Coffee & Churpi) -->
+    <section id="flagship" class="py-32 px-6 lg:px-12 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                <div>
+                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.4em] block mb-4">Core Range</span>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-header">Flagship Series</h2>
+                </div>
+                <p class="text-gray-500 max-w-xs text-sm">Authentic flavors from the roof of the world, packaged for the modern connoisseur.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Churpi -->
+                <div class="product-card glass p-10 rounded-[2.5rem] reveal">
+                    <div class="flex flex-col h-full">
+                        <div class="aspect-square w-full mb-10 overflow-hidden flex items-center justify-center p-8 bg-neutral-900/50 rounded-3xl">
+                            <img src="1.png" class="max-h-full object-contain" onerror="this.src='https://via.placeholder.com/500?text=CHURPI'">
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-3xl font-bold">Himalayan Churpi</h3>
+                                <span class="text-xl font-bold opacity-50">$24</span>
+                            </div>
+                            <p class="text-gray-500 text-sm mb-8 leading-relaxed">The legendary hard cheese snack. Smoked over Himalayan oak, 100% organic, and packed with mountain protein.</p>
+                            <button class="w-full py-4 border border-white/10 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all">Select Batch</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coffee -->
+                <div class="product-card glass p-10 rounded-[2.5rem] reveal" style="transition-delay: 0.2s;">
+                    <div class="flex flex-col h-full">
+                        <div class="aspect-square w-full mb-10 overflow-hidden flex items-center justify-center p-8 bg-neutral-900/50 rounded-3xl">
+                            <img src="2.png" class="max-h-full object-contain" onerror="this.src='https://via.placeholder.com/500?text=COFFEE'">
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-3xl font-bold">Signature Coffee</h3>
+                                <span class="text-xl font-bold opacity-50">$32</span>
+                            </div>
+                            <p class="text-gray-500 text-sm mb-8 leading-relaxed">High-altitude Arabica. Single-origin beans roasted at 4,000ft for a profile that is bold, clean, and unparalleled.</p>
+                            <button class="w-full py-4 border border-white/10 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all">Select Roast</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apparel & Essentials -->
+    <section id="apparel" class="py-32 px-6 lg:px-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-20 text-center">
+                <span class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.4em] block mb-4">Lifestyle</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-header mb-6">Lifestyle Essentials</h2>
+                <div class="w-20 h-1 bg-white mx-auto opacity-20"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Hoodie -->
+                <div class="product-card glass p-6 rounded-3xl reveal">
+                    <div class="aspect-[3/4] mb-8 overflow-hidden rounded-2xl bg-neutral-900/30 flex items-center justify-center p-10">
+                        <img src="3.png" class="w-full h-full object-contain" onerror="this.src='https://via.placeholder.com/400x500/111/fff?text=HOODIE'">
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <h4 class="font-bold">Heavyweight Hoodie</h4>
+                            <span class="text-xs opacity-50 font-bold">$110</span>
+                        </div>
+                        <p class="text-xs text-gray-500 tracking-wide uppercase font-bold">Graphite / Oversized Fit</p>
+                    </div>
+                </div>
+
+                <!-- Vest -->
+                <div class="product-card glass p-6 rounded-3xl reveal" style="transition-delay: 0.1s;">
+                    <div class="aspect-[3/4] mb-8 overflow-hidden rounded-2xl bg-neutral-900/30 flex items-center justify-center p-10">
+                        <img src="4.png" class="w-full h-full object-contain" onerror="this.src='https://via.placeholder.com/400x500/111/fff?text=VEST'">
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <h4 class="font-bold">Round Neck Vest</h4>
+                            <span class="text-xs opacity-50 font-bold">$85</span>
+                        </div>
+                        <p class="text-xs text-gray-500 tracking-wide uppercase font-bold">Tech Knit / Modular</p>
+                    </div>
+                </div>
+
+                <!-- Cap -->
+                <div class="product-card glass p-6 rounded-3xl reveal" style="transition-delay: 0.2s;">
+                    <div class="aspect-[3/4] mb-8 overflow-hidden rounded-2xl bg-neutral-900/30 flex items-center justify-center p-10">
+                        <img src="5.png" class="w-full h-full object-contain" onerror="this.src='https://via.placeholder.com/400x500/111/fff?text=CAP'">
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <h4 class="font-bold">Signature Cap</h4>
+                            <span class="text-xs opacity-50 font-bold">$45</span>
+                        </div>
+                        <p class="text-xs text-gray-500 tracking-wide uppercase font-bold">Structured / Minimal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Narrative Section -->
+    <section id="story" class="py-32 bg-white text-black overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-2 gap-24 items-center">
+                <div class="reveal">
+                    <h2 class="text-5xl md:text-7xl font-extrabold text-header mb-10 tracking-tight">The Sky is <br>not the limit.</h2>
+                    <p class="text-xl text-gray-600 mb-12 leading-relaxed">SHYRA was born in the shadows of the highest peaks on earth. We believe in high-integrity products—whether it's the snack that fueled generations of climbers or the apparel that protects you in the urban jungle.</p>
+                    
+                    <div class="grid grid-cols-2 gap-10">
+                        <div>
+                            <p class="text-4xl font-extrabold mb-2">4,500m</p>
+                            <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Harvest Altitude</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-extrabold mb-2">100%</p>
+                            <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Pure Himalayan</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative reveal">
+                    <div class="rounded-[3rem] overflow-hidden bg-gray-100">
+                        <img src="1.png" alt="Shyra Core" class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" onerror="this.src='https://via.placeholder.com/800x1000/000/fff?text=HERITAGE'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Newsletter -->
+    <footer class="pt-32 pb-12 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="glass p-12 lg:p-24 rounded-[3rem] text-center mb-32 relative overflow-hidden">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_70%)]"></div>
+                <h3 class="text-4xl md:text-6xl font-extrabold mb-8 tracking-tighter">Join the SHYRA Clan.</h3>
+                <p class="text-gray-400 mb-12 max-w-lg mx-auto uppercase tracking-widest text-xs font-bold">Drops, Expeditions, and Private Releases.</p>
+                <form class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto relative z-10">
+                    <input type="email" placeholder="Email Address" class="flex-1 bg-white/5 border border-white/10 rounded-2xl px-8 py-5 focus:outline-none focus:border-white/30 transition-all">
+                    <button class="bg-white text-black font-bold px-10 py-5 rounded-2xl hover:bg-gray-200 transition-all">Join</button>
+                </form>
+            </div>
+
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-10 pt-10 border-t border-white/5 font-bold text-[10px] tracking-[0.2em] text-gray-600 uppercase">
+                <div>&copy; 2025 SHYRA LTD. HIMALAYAN BRED.</div>
+                <div class="flex gap-12">
+                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-white transition-colors">TikTok</a>
+                    <a href="#" class="hover:text-white transition-colors">Expeditions</a>
+                </div>
+                <div>Terms / Privacy / Ethics</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(revealCallback, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Navbar interaction
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.padding = '0.5rem 0';
+                nav.style.backgroundColor = 'rgba(8, 8, 8, 0.98)';
+            } else {
+                nav.style.padding = '0';
+                nav.style.backgroundColor = 'rgba(8, 8, 8, 0.85)';
+            }
+        });
+    </script>
+</body>
+</html>
